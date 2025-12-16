@@ -1,50 +1,88 @@
-# AmigoFiel
+# 🐾 AmigoFiel - Pet Shop Manager
 
-O **AmigoFiel** é um sistema de gerenciamento para uma loja de animais de estimação. Ele permite que você cadastre animais, serviços, produtos, agende serviços para animais e venda produtos. É uma solução completa para ajudar a administrar sua loja de forma eficiente.
+> Sistema de gerenciamento via console para Pet Shops, focado em controle de serviços, estoque e agendamentos.
 
-## Funcionalidades
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Console App](https://img.shields.io/badge/Console_App-4D4D4D?style=for-the-badge&logo=windows-terminal&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Concluído-green)
 
-- **Cadastro de Animais:** Registre informações detalhadas sobre os animais, incluindo nome, espécie, raça, data de nascimento e nome do proprietário.
+## 📄 Sobre o Projeto
 
-- **Cadastro de Serviços:** Adicione diferentes tipos de serviços disponíveis, como banho, tosa e vacinação.
+O **AmigoFiel** é uma aplicação Java baseada em CLI (Interface de Linha de Comando) desenvolvida para simular o ecossistema de gestão de uma loja.
 
-- **Cadastro de Produtos:** Registre produtos disponíveis para venda, incluindo nome, categoria, preço e quantidade em estoque.
+O objetivo do projeto foi aplicar conceitos fundamentais de **Programação Orientada a Objetos (POO)** para resolver problemas reais de negócio, como baixa automática de estoque após uma venda e validação de agendamentos.
 
-- **Agendamento de Serviços:** Agende serviços para animais existentes em uma data e horário específicos.
+## ✨ Funcionalidades
 
-- **Venda de Produtos:** Venda produtos disponíveis, atualizando automaticamente o estoque após cada venda.
+O sistema possui um menu interativo que permite:
 
-## Como Usar
+* 🐶 **Gestão de Animais:** Cadastro completo com nome, espécie, raça e dados do proprietário.
+* 🚿 **Catálogo de Serviços:** Registro de serviços especializados (Banho, Tosa, Vacinação) com preços definidos.
+* 📦 **Controle de Estoque:** Cadastro de produtos e monitoramento de quantidade disponível.
+* 💰 **Sistema de Vendas:** Realiza a venda de produtos, calculando o valor total e **deduzindo automaticamente** a quantidade do estoque.
+* 📅 **Agendamento Inteligente:** Vincula um animal a um serviço específico em data e hora marcadas.
 
-1. **Cadastro de Animais:**
-   - Escolha a opção `1` no menu principal.
-   - Preencha as informações solicitadas para cadastrar um novo animal.
+## 🛠️ Tecnologias e Conceitos
 
-2. **Cadastro de Serviços:**
-   - Escolha a opção `2` no menu principal.
-   - Escolha o tipo de serviço (Banho, Tosa ou Vacina) e adicione-o à lista de serviços disponíveis.
+O projeto foi construído utilizando Java puro, focando na estruturação lógica sem dependência de frameworks externos:
 
-3. **Cadastro de Produtos:**
-   - Escolha a opção `4` no menu principal.
-   - Preencha as informações solicitadas para cadastrar um novo produto.
+* **Java Collections (`ArrayList`):** Para manipulação dinâmica das listas de clientes, produtos e agendamentos em memória.
+* **POO (Polimorfismo e Herança):** Estruturação das classes de Serviços (Banho, Tosa, Vacina).
+* **Tratamento de Dados:** Uso de `Scanner` para entrada de dados e validação de tipos (prevenção de erros de digitação).
+* **Lógica de Negócio:** Validação de estoque insuficiente antes de efetivar uma venda.
 
-4. **Agendamento de Serviços:**
-   - Escolha a opção `3` no menu principal.
-   - Selecione um animal e um serviço disponível para agendamento.
-   - Informe a data e o horário do agendamento.
+## 📂 Estrutura das Classes
 
-5. **Venda de Produtos:**
-   - Escolha a opção `5` no menu principal.
-   - Escolha o produto que deseja vender.
-   - Informe a quantidade que deseja comprar.
+O projeto está organizado nas seguintes entidades principais:
 
-6. **Sair do Programa:**
-   - Escolha a opção `6` no menu principal para sair do programa.
+* `Main.java`: Classe principal que gerencia o fluxo do menu e a interação com o usuário.
+* `Animal.java`: Representação dos pets clientes.
+* `Produto.java`: Controle de itens vendáveis e estoque.
+* `Servico.java`: Classe base para os serviços oferecidos.
+* `Agenda.java`: Entidade associativa que liga Cliente + Serviço + Data.
 
-## Requisitos
+## 🚀 Como Executar
 
-- Java Development Kit (JDK) instalado para compilar e executar o programa.
+### Pré-requisitos
+* Ter o [Java JDK](https://www.oracle.com/java/technologies/downloads/) instalado.
 
-## Contribuição
+### Passo a Passo
 
-Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões para melhorar o sistema, sinta-se à vontade para abrir uma *issue* neste repositório.
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/amigofiel.git](https://github.com/seu-usuario/amigofiel.git)
+    ```
+
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd amigofiel
+    ```
+
+3.  **Compile o código:**
+    ```bash
+    javac amigofiel/*.java
+    ```
+
+4.  **Execute a aplicação:**
+    ```bash
+    java amigofiel.Main
+    ```
+
+## 📸 Exemplo de Uso (Console)
+
+```text
+Escolha uma opção:
+1 - Cadastrar Animal
+2 - Cadastrar Serviço
+3 - Agendar Serviço
+4 - Cadastrar Produto
+5 - Vender Produto
+6 - Sair
+> 5
+
+Lista de produtos disponíveis:
+1. Ração Premium - R$ 150.0 - Estoque: 10
+Selecione um produto: 1
+Digite a quantidade: 2
+Total a pagar: R$ 300.0
+Venda realizada com sucesso!
